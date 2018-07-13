@@ -5,12 +5,9 @@
     "description": "",
     "main": "index.html",
     "scripts": {
-        "start":
-            "./node_modules/.bin/webpack-dev-server --progress --color --hot --watch --mode development",
-        "serve":
-            "./node_modules/.bin/serve --listen 8080 ./dist",
-        "build":
-            "./node_modules/.bin/webpack-cli --color --mode development --hide-modules true",
+        "start": "./node_modules/.bin/webpack-dev-server --progress --color --hot --watch --mode development",
+        "serve": "./node_modules/.bin/serve --listen 8080 ./dist",
+        "build": "./node_modules/.bin/webpack-cli --color --mode development --hide-modules true",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "",
@@ -20,7 +17,7 @@
         "@material-ui/icons": "~1.1.0",
         "babel-core": "~6.26.0",
         "babel-loader": "~7.1.1",
-        "babel-plugin-transform-react-jsx": "~6.24.1",
+        "babel-plugin-transform-react-jsx": "^6.24.1",
         "babel-polyfill": "~6.26.0",
         "babel-preset-react": "~6.24.1",
         "hard-source-webpack-plugin": "^0.6.4",
@@ -31,7 +28,7 @@
         "ra-language-english": "^2.0.0",
         "ra-language-french": "^2.0.0",
         "react": "~16.3.1",
-        "react-admin": "^2.0.0",
+        "react-admin": "2.1.0",
         "react-dom": "~16.3.1",
         "serve": "~9.1.0",
         "style-loader": "~0.20.3",
@@ -39,5 +36,8 @@
         "webpack": "~4.5.0",
         "webpack-cli": "~2.0.13",
         "webpack-dev-server": "~3.1.1"
+    },
+    "dependencies": {
+        "babel-preset-stage-0": "^6.24.1"
     }
 }

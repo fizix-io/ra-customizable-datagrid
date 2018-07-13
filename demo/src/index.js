@@ -14,28 +14,28 @@ import posts from './posts';
 import users from './users';
 
 render(
-    <Admin
-        authProvider={authProvider}
-        dataProvider={dataProvider}
-        i18nProvider={i18nProvider}
-        title="Example Admin"
-        locale="en"
-        customRoutes={[
-            <Route
-                exact
-                path="/custom"
-                component={CustomRouteNoLayout}
-                noLayout
-            />,
-            <Route exact path="/custom2" component={CustomRouteLayout} />,
-        ]}
-    >
-        {permissions => [
-            <Resource name="posts" {...posts} />,
-            <Resource name="comments" {...comments} />,
-            permissions ? <Resource name="users" {...users} /> : null,
-            <Resource name="tags" />,
-        ]}
-    </Admin>,
-    document.getElementById('root')
+  <Admin
+    authProvider={authProvider}
+    dataProvider={dataProvider}
+    i18nProvider={i18nProvider}
+    title="Example Admin"
+    locale="en"
+    customRoutes={[
+      <Route
+        exact
+        path="/custom"
+        component={CustomRouteNoLayout}
+        noLayout
+      />,
+      <Route exact path="/custom2" component={CustomRouteLayout} />,
+    ]}
+  >
+    {permissions => [
+      <Resource name="posts" {...posts} />,
+      <Resource name="comments" {...comments} />,
+      permissions ? <Resource name="users" {...users} /> : null,
+      <Resource name="tags" />,
+    ]}
+  </Admin>,
+  document.getElementById('root')
 );
