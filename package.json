@@ -22,6 +22,18 @@
   },
   "homepage": "https://github.com/fizix-io/ra-customizable-datagrid#readme",
   "peerDependencies": {
-    "react-admin": "^2.1.1"
+    "react": "^16.4.1",
+    "react-admin": "^2.1.1",
+    "react-dom": "^16.4.1"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "hard-source-webpack-plugin": "^0.11.1"
   }
 }
