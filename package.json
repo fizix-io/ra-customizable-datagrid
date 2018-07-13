@@ -1,0 +1,24 @@
+{
+  "name": "ra-customizable-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fizix-io/ra-super-plugin-a-renommer.git"
+  },
+  "keywords": [
+    "React",
+    "React-Admin",
+    "List"
+  ],
+  "author": "FIZIX, @akselsledins",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fizix-io/ra-super-plugin-a-renommer/issues"
+  },
+  "homepage": "https://github.com/fizix-io/ra-super-plugin-a-renommer#readme"
+}
