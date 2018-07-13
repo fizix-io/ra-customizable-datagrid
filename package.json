@@ -1,5 +1,5 @@
 {
-  "name": "ra-customizable-list",
+  "name": "ra-customizable-datagrid",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fizix-io/ra-super-plugin-a-renommer.git"
+    "url": "git+https://github.com/fizix-io/ra-customizable-datagrid.git"
   },
   "keywords": [
     "React",
@@ -18,7 +18,10 @@
   "author": "FIZIX, @akselsledins",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fizix-io/ra-super-plugin-a-renommer/issues"
+    "url": "https://github.com/fizix-io/ra-customizable-datagrid/issues"
   },
-  "homepage": "https://github.com/fizix-io/ra-super-plugin-a-renommer#readme"
+  "homepage": "https://github.com/fizix-io/ra-customizable-datagrid#readme",
+  "peerDependencies": {
+    "react-admin": "^2.1.1"
+  }
 }
