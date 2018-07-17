@@ -3,15 +3,15 @@
 
 
 "@babel/runtime@^7.0.0-beta.42":
-  version "7.0.0-beta.53"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0-beta.53.tgz#9df22ae34823ce89f790060594b83ee572e2c5d2"
+  version "7.0.0-beta.54"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0-beta.54.tgz#39ebb42723fe7ca4b3e1b00e967e80138d47cadf"
   dependencies:
     core-js "^2.5.7"
     regenerator-runtime "^0.12.0"
 
 "@material-ui/core@^1.0.0":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-1.3.1.tgz#8b4e6db9ed4536e8ccbea0eeff3da0d524e6af2c"
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-1.4.0.tgz#e535fef84576b096c46e1fb7d6c4c61895155fd3"
   dependencies:
     "@babel/runtime" "^7.0.0-beta.42"
     "@types/jss" "^9.5.3"
@@ -23,6 +23,7 @@
     deepmerge "^2.0.1"
     dom-helpers "^3.2.1"
     hoist-non-react-statics "^2.5.0"
+    is-plain-object "^2.0.4"
     jss "^9.3.3"
     jss-camel-case "^6.0.0"
     jss-default-unit "^8.0.2"
@@ -32,10 +33,10 @@
     jss-vendor-prefixer "^7.0.0"
     keycode "^2.1.9"
     normalize-scroll-left "^0.1.2"
+    popper.js "^1.0.0"
     prop-types "^15.6.0"
     react-event-listener "^0.6.0"
     react-jss "^8.1.0"
-    react-popper "^0.10.0"
     react-transition-group "^2.2.1"
     recompose "^0.27.0"
     scroll "^2.0.3"
@@ -1183,7 +1184,7 @@ is-plain-obj@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/is-plain-obj/-/is-plain-obj-1.1.0.tgz#71a50c8429dfca773c92a390a4a03b39fcd51d3e"
 
-is-plain-object@^2.0.1:
+is-plain-object@^2.0.1, is-plain-object@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/is-plain-object/-/is-plain-object-2.0.4.tgz#2c163b3fafb1b606d9d17928f05c2a1c38e07677"
   dependencies:
@@ -1519,7 +1520,7 @@ pkg-dir@^3.0.0:
   dependencies:
     find-up "^3.0.0"
 
-popper.js@^1.14.1:
+popper.js@^1.0.0:
   version "1.14.3"
   resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.3.tgz#1438f98d046acf7b4d78cd502bf418ac64d4f095"
 
@@ -1552,9 +1553,9 @@ query-string@~5.1.1:
     object-assign "^4.1.0"
     strict-uri-encode "^1.0.0"
 
-ra-core@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/ra-core/-/ra-core-2.1.0.tgz#b81d9a98727c8fc28f6165178f299a018e76f08b"
+ra-core@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/ra-core/-/ra-core-2.1.2.tgz#88e81ce17a53af7395283b47ccd73f212e1ae829"
   dependencies:
     babel-runtime "~6.26.0"
     classnames "~2.2.5"
@@ -1579,9 +1580,9 @@ ra-language-english@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/ra-language-english/-/ra-language-english-2.0.2.tgz#121bd8c358af7f74dc7a8bff4f4860aaec150a3b"
 
-ra-ui-materialui@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/ra-ui-materialui/-/ra-ui-materialui-2.1.1.tgz#28e2a03223fa4ae903b4e55870c6186ded19f3d9"
+ra-ui-materialui@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/ra-ui-materialui/-/ra-ui-materialui-2.1.2.tgz#d7ed80e8e34c37cb92e7237b0d6f5ab2e8e01baa"
   dependencies:
     "@material-ui/core" "^1.0.0"
     "@material-ui/icons" "^1.0.0"
@@ -1590,7 +1591,7 @@ ra-ui-materialui@^2.1.1:
     inflection "~1.12.0"
     lodash "~4.17.5"
     prop-types "~15.6.1"
-    ra-core "^2.1.0"
+    ra-core "^2.1.2"
     react-autosuggest "^9.3.2"
     react-dropzone "~4.0.1"
     react-redux "~5.0.7"
@@ -1607,12 +1608,12 @@ rafl@~1.2.1:
     global "~4.3.0"
 
 react-admin@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/react-admin/-/react-admin-2.1.1.tgz#e0f45c41f9322ce6b44ce48c5b17c84e66d5bf48"
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/react-admin/-/react-admin-2.1.2.tgz#9cde6890baf146d4d3b1b1f8a8c787b2286d2df3"
   dependencies:
-    ra-core "^2.1.0"
+    ra-core "^2.1.2"
     ra-language-english "^2.0.2"
-    ra-ui-materialui "^2.1.1"
+    ra-ui-materialui "^2.1.2"
 
 react-autosuggest@^9.3.2:
   version "9.3.4"
@@ -1667,13 +1668,6 @@ react-jss@^8.1.0:
 react-lifecycles-compat@^3.0.2, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
-
-react-popper@^0.10.0:
-  version "0.10.4"
-  resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-0.10.4.tgz#af2a415ea22291edd504678d7afda8a6ee3295aa"
-  dependencies:
-    popper.js "^1.14.1"
-    prop-types "^15.6.1"
 
 react-redux@~5.0.7:
   version "5.0.7"
