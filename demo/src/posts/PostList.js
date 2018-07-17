@@ -5,32 +5,29 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import { withStyles } from '@material-ui/core/styles';
 import React, { Children, cloneElement } from 'react';
 import {
-  BooleanField,
   BulkActions,
   BulkDeleteAction,
-  ChipField,
-  // Datagrid,
-  DateField,
-  EditButton,
   Filter,
   List,
-  NumberField,
-  ReferenceArrayField,
   Responsive,
-  ShowButton,
   SimpleList,
-  SingleFieldList,
   TextField,
   TextInput,
   translate,
+  DateField,
+  BooleanField,
+  NumberField,
+  ReferenceArrayField,
+  SingleFieldList,
+  ChipField,
+  EditButton,
+  ShowButton,
 } from 'react-admin'; // eslint-disable-line import/no-unresolved
 
 import CustomizableDatagrid from 'ra-customizable-datagrid';
 
 import ResetViewsAction from './ResetViewsAction';
 export const PostIcon = BookIcon;
-
-console.log('Customizable', CustomizableDatagrid);
 
 const QuickFilter = translate(({ label, translate }) => (
   <Chip style={{ marginBottom: 8 }} label={translate(label)} />
@@ -116,32 +113,31 @@ const PostList = withStyles(styles)(({ classes, ...props }) => (
         <CustomizableDatagrid>
           <TextField source="id" />
           <TextField source="title" cellClassName={classes.title} />
-          {/*<DateField*/}
-          {/*  source="published_at"*/}
-          {/*  cellClassName={classes.publishedAt}*/}
-          {/*/>*/}
-          {/**/}
-          {/*<BooleanField*/}
-          {/*  source="commentable"*/}
-          {/*  label="resources.posts.fields.commentable_short"*/}
-          {/*  sortable={false}*/}
-          {/*/>*/}
-          {/*<NumberField source="views" />*/}
-          {/*<ReferenceArrayField*/}
-          {/*  label="Tags"*/}
-          {/*  reference="tags"*/}
-          {/*  source="tags"*/}
-          {/*  cellClassName={classes.hiddenOnSmallScreens}*/}
-          {/*  headerClassName={classes.hiddenOnSmallScreens}*/}
-          {/*>*/}
-          {/*  <SingleFieldList>*/}
-          {/*    <ChipField source="name" />*/}
-          {/*  </SingleFieldList>*/}
-          {/*</ReferenceArrayField>*/}
-          {/*<PostListActionToolbar>*/}
-          {/*  <EditButton />*/}
-          {/*  <ShowButton />*/}
-          {/*</PostListActionToolbar>*/}
+          <DateField
+            source="published_at"
+            cellClassName={classes.publishedAt}
+          />
+          <BooleanField
+            source="commentable"
+            label="resources.posts.fields.commentable_short"
+            sortable={false}
+          />
+          <NumberField source="views" />
+          <ReferenceArrayField
+            label="Tags"
+            reference="tags"
+            source="tags"
+            cellClassName={classes.hiddenOnSmallScreens}
+            headerClassName={classes.hiddenOnSmallScreens}
+          >
+            <SingleFieldList>
+              <ChipField source="name" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <PostListActionToolbar>
+            <EditButton />
+            <ShowButton />
+          </PostListActionToolbar>
         </CustomizableDatagrid>
       }
     />

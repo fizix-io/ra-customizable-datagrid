@@ -269,4 +269,48 @@ const postData = [
 export default {
   posts: postData,
   posts_2: postData,
+  tags: [
+    {
+      id: 1,
+      name: 'Sport',
+      published: 1,
+    },
+    {
+      id: 2,
+      name: 'Technology',
+      published: false,
+    },
+    {
+      id: 3,
+      name: 'Code',
+      published: true,
+    },
+    {
+      id: 4,
+      name: 'Photo',
+      published: false,
+    },
+    {
+      id: 5,
+      name: 'Music',
+      published: 1,
+    },
+  ],
+  users: [
+    {
+      id: 1,
+      name: 'Logan Schowalter',
+      role: 'admin',
+    },
+    {
+      id: 2,
+      name: 'Breanna Gibson',
+      role: 'user',
+    },
+    {
+      id: 3,
+      name: 'Annamarie Mayer',
+      role: 'user',
+    },
+  ],
 };
