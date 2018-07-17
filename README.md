@@ -12,6 +12,9 @@
 
 
 ## Preview
+
+<a href="https://fizix-io.github.io/ra-customizable-datagrid/" rel="noopener" target="_blank">Demo link</a>
+
 <p align="center">
   <img width="800" src="./demo/demo.gif" alt="Demo">
 </p>
