@@ -1,0 +1,9 @@
+# .npmignore
+
+/demo
+/node_modules
+/docs
+/src
+.editorconfig
+yarn.lock
+README.md
