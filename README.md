@@ -25,10 +25,6 @@
 $> npm run demo-install
 $> npm run demo
 ```
-
-## Features
-* preferences are stored in local storage
-
 ## Installation
 
 ra-customizable-datagrid is available from npm. You can install it (and its required dependencies) using:
@@ -55,7 +51,23 @@ const PostList = props => (
     </CustomizableDatagrid>
   </List>
 );
+```
 
+## Features
+* preferences are stored in local storage
+* `defaultColumns` prop is used to set which column is displayed at the first visit of the user
+
+```jsx
+import CustomizableDatagrid from 'ra-customizable-datagrid';
+
+const PostList = props => (
+  <List {...props}>
+    <CustomizableDatagrid defaultColumns={['title']}>
+      <TextField source="id" />
+      <TextField source="title" />
+    </CustomizableDatagrid>
+  </List>
+);
 ```
 
 ## License
