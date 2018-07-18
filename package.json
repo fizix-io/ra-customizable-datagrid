@@ -2,8 +2,9 @@
   "name": "ra-customizable-datagrid",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
+    "build": "/node_modules/.bin/babel ./src/ -d lib",
     "demo": "npm run start --prefix ./demo",
     "demo-install": "yarn install --cwd ./demo && yarn install && npm run install:peers",
     "install:peers": "yarn add -P $(jq -r '.peerDependencies | to_entries | map(\"\\(.key)@\\(.value | tostring)\") | join(\" \")' package.json)"
@@ -31,6 +32,7 @@
     "react-dom": "^16.4.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-plugin-transform-react-jsx": "^6.24.1",
