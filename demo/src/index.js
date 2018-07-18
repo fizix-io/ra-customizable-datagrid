@@ -18,5 +18,5 @@ render(
     <Resource name="posts_2" {...posts} />
     <Resource name="tags" />
   </Admin>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

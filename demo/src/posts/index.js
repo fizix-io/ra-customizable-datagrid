@@ -5,9 +5,9 @@ import PostList from './PostList';
 import PostShow from './PostShow';
 
 export default {
-    list: PostList,
-    create: PostCreate,
-    edit: PostEdit,
-    show: PostShow,
-    icon: BookIcon,
+  list: PostList,
+  create: PostCreate,
+  edit: PostEdit,
+  show: PostShow,
+  icon: BookIcon,
 };

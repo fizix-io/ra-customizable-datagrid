@@ -47,15 +47,8 @@ const PostFilter = props => (
         ),
       }}
     />
-    <TextInput
-      source="title"
-      defaultValue="Qui tempore rerum et voluptates"
-    />
-    <QuickFilter
-      label="resources.posts.fields.commentable"
-      source="commentable"
-      defaultValue
-    />
+    <TextInput source="title" defaultValue="Qui tempore rerum et voluptates" />
+    <QuickFilter label="resources.posts.fields.commentable" source="commentable" defaultValue />
   </Filter>
 );
 
@@ -104,19 +97,14 @@ const PostList = withStyles(styles)(({ classes, ...props }) => (
         <SimpleList
           primaryText={record => record.title}
           secondaryText={record => `${record.views} views`}
-          tertiaryText={record =>
-            new Date(record.published_at).toLocaleDateString()
-          }
+          tertiaryText={record => new Date(record.published_at).toLocaleDateString()}
         />
       }
       medium={
         <CustomizableDatagrid defaultColumns={['id', 'title']}>
           <TextField source="id" />
           <TextField source="title" cellClassName={classes.title} />
-          <DateField
-            source="published_at"
-            cellClassName={classes.publishedAt}
-          />
+          <DateField source="published_at" cellClassName={classes.publishedAt} />
           <BooleanField
             source="commentable"
             label="resources.posts.fields.commentable_short"

@@ -5,25 +5,25 @@ import { Show, Tab, TabbedShowLayout, TextField } from 'react-admin'; // eslint-
 import UserTitle from './UserTitle';
 
 const UserShow = ({ permissions, ...props }) => (
-    <Show title={<UserTitle />} {...props}>
-        <TabbedShowLayout>
-            <Tab label="user.form.summary">
-                <TextField source="id" />
-                <TextField source="name" />
-            </Tab>
-            {permissions === 'admin' && (
-                <Tab label="user.form.security" path="security">
-                    <TextField source="role" />
-                </Tab>
-            )}
-        </TabbedShowLayout>
-    </Show>
+  <Show title={<UserTitle />} {...props}>
+    <TabbedShowLayout>
+      <Tab label="user.form.summary">
+        <TextField source="id" />
+        <TextField source="name" />
+      </Tab>
+      {permissions === 'admin' && (
+        <Tab label="user.form.security" path="security">
+          <TextField source="role" />
+        </Tab>
+      )}
+    </TabbedShowLayout>
+  </Show>
 );
 
 UserShow.propTypes = {
-    location: PropTypes.object.isRequired,
-    match: PropTypes.object.isRequired,
-    permissions: PropTypes.string,
+  location: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
+  permissions: PropTypes.string,
 };
 
 export default UserShow;
