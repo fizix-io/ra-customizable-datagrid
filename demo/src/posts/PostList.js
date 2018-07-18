@@ -110,7 +110,7 @@ const PostList = withStyles(styles)(({ classes, ...props }) => (
         />
       }
       medium={
-        <CustomizableDatagrid>
+        <CustomizableDatagrid defaultColumns={['id', 'title']}>
           <TextField source="id" />
           <TextField source="title" cellClassName={classes.title} />
           <DateField
