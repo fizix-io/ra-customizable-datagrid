@@ -71,4 +71,4 @@ const PostList = props => (
 ```
 
 ## License
-`ra-customizable-datagrid` is licensed under the MIT License, sponsored and supported by <a href="https://fizix.io/" rel="noopener" target="_blank">Fxizix</a>.
+`ra-customizable-datagrid` is licensed under the MIT License, sponsored and supported by <a href="https://fizix.io/" rel="noopener" target="_blank">Fizix</a>.
