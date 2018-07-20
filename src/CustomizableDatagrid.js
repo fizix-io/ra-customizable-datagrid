@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import T from 'prop-types';
 
 import { Datagrid } from 'react-admin';
 
@@ -26,27 +27,43 @@ const LS = 'raColumnsConfig';
 class CustomizableDatagrid extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       open: false,
       selection: {},
     };
 
-    // default behaviour: display all columns
-    React.Children.forEach(props.children, field => {
-      this.state.selection[field.props.source] = true;
-    });
+    const { defaultColumns, resource, children } = props;
 
-    // we try to apply the local storage state to our internal state
+    let localStorageValue = null;
+    let localStorageValueForResource = null;
+
+    // we try to retrieve the local storage value for this resource
     try {
-      const localStorageValue = JSON.parse(isEmpty(window.localStorage.getItem(LS)) ? '{}' : window.localStorage.getItem(LS));
-      const localStorageValueForResource = localStorageValue[props.resource] || {};
+      localStorageValue = JSON.parse(
+        isEmpty(window.localStorage.getItem(LS)) ? '{}' : window.localStorage.getItem(LS),
+      );
+      localStorageValueForResource = localStorageValue[resource] || {};
+    } catch (e) {} // ignore - window.localStorage is unreliable
 
+    // if this is the first time the user come to the application / view
+    if (!isEmpty(defaultColumns) && isEmpty(localStorageValueForResource)) {
+      defaultColumns.forEach(defaultValue => {
+        this.state.selection[defaultValue] = true;
+      });
+    }
+    // we try to apply the local storage state to our internal state
+    else if (!isEmpty(localStorageValueForResource)) {
       Object.keys(localStorageValueForResource).forEach(key => {
         this.state.selection[key] = localStorageValueForResource[key];
       });
-
-    } catch (e) { } // ignore - window.localStorage is unreliable
+    }
+    // otherwise we fallback on the default behaviour
+    //  -> display all columns
+    else {
+      React.Children.forEach(children, field => {
+        this.state.selection[field.props.source] = true;
+      });
+    }
 
     this.updateLocalStorage();
   }
@@ -60,7 +77,7 @@ class CustomizableDatagrid extends Component {
     let oldValue = {};
     try {
       oldValue = JSON.parse(window.localStorage.getItem(LS));
-    } catch (e) { };
+    } catch (e) {}
 
     const value = JSON.stringify({
       ...oldValue,
@@ -69,31 +86,42 @@ class CustomizableDatagrid extends Component {
 
     try {
       window.localStorage.setItem(LS, value);
-    } catch (e) { };
-  }
+    } catch (e) {}
+  };
 
-  toggleColumn = (event) => {
-    this.setState({
-      selection: {
-        ...this.state.selection,
-        [event.target.value]: !this.state.selection[event.target.value]
-      }
-    }, this.updateLocalStorage);
-  }
+  toggleColumn = event => {
+    this.setState(
+      {
+        selection: {
+          ...this.state.selection,
+          [event.target.value]: !this.state.selection[event.target.value],
+        },
+      },
+      this.updateLocalStorage,
+    );
+  };
 
   handleOpen = () => this.setState({ open: true });
   handleClose = () => this.setState({ open: false });
 
   render() {
-    const { children } = this.props;
+    const { children, defaultColumns, ...rest } = this.props;
 
     const columns = React.Children.map(children, field => field.props.source);
 
     return (
       <div>
         <div style={{ float: 'right', marginRight: '1rem' }}>
-          <Button variant="outlined" mini color="secondary" aria-label="add" onClick={this.handleOpen}><Icon /></Button>
-          {this.state.open &&
+          <Button
+            variant="outlined"
+            mini
+            color="secondary"
+            aria-label="add"
+            onClick={this.handleOpen}
+          >
+            <Icon />
+          </Button>
+          {this.state.open && (
             <Dialog
               maxWidth="xs"
               aria-labelledby="confirmation-dialog-title"
@@ -118,7 +146,6 @@ class CustomizableDatagrid extends Component {
                     />
                   ))}
                 </FormGroup>
-
               </DialogContent>
               <DialogActions>
                 <Button onClick={this.handleClose} color="primary">
@@ -126,17 +153,28 @@ class CustomizableDatagrid extends Component {
                 </Button>
               </DialogActions>
             </Dialog>
-          }
+          )}
         </div>
-        <Datagrid {...this.props}>
+        <Datagrid {...rest}>
           {React.Children.map(
             children,
-            child => child && !!this.state.selection[child.props.source] ? React.cloneElement(child, {}) : null
+            child =>
+              child && !!this.state.selection[child.props.source]
+                ? React.cloneElement(child, {})
+                : null,
           )}
         </Datagrid>
       </div>
-    )
+    );
   }
 }
+
+CustomizableDatagrid.propTypes = {
+  defaultColumns: T.arrayOf(T.string),
+};
+
+CustomizableDatagrid.defaultProps = {
+  defaultColumns: [],
+};
 
 export default CustomizableDatagrid;

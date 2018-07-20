@@ -26,11 +26,7 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      'ra-customizable-datagrid': path.join(
-        __dirname,
-        '..',
-        'src'
-      ),
+      'ra-customizable-datagrid': path.join(__dirname, '..', 'src'),
     },
   },
   devServer: {

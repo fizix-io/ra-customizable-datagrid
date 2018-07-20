@@ -1,8 +1,7 @@
 const postData = [
   {
     id: 1,
-    title:
-      'Accusantium qui nihil voluptatum quia voluptas maxime ab similique',
+    title: 'Accusantium qui nihil voluptatum quia voluptas maxime ab similique',
     teaser:
       'In facilis aut aut odit hic doloribus. Fugit possimus perspiciatis sit molestias in. Sunt dignissimos sed quis at vitae veniam amet. Sint sunt perspiciatis quis doloribus aperiam numquam consequatur et. Blanditiis aut earum incidunt eos magnam et voluptatem. Minima iure voluptatum autem. At eaque sit aperiam minima aut in illum.',
     body:
@@ -154,8 +153,7 @@ const postData = [
   },
   {
     id: 8,
-    title:
-      'Culpa possimus quibusdam nostrum enim tempore rerum odit excepturi',
+    title: 'Culpa possimus quibusdam nostrum enim tempore rerum odit excepturi',
     teaser:
       'Qui quos exercitationem itaque quia. Repellat libero ut recusandae quidem repudiandae ipsam laudantium. Eveniet quos et quo omnis aut commodi incidunt.',
     body:
