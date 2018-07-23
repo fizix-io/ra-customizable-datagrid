@@ -3,24 +3,21 @@ import T from 'prop-types';
 
 import { Datagrid } from 'react-admin';
 
-/* utils */
 import isEmpty from 'lodash/isEmpty';
+import filter from 'lodash/filter';
+import get from 'lodash/get';
 
-/* icons */
-import Icon from '@material-ui/icons/ViewColumn';
-import IconClose from '@material-ui/icons/Close';
-
-/* material-ui */
+import ColumnIcon from '@material-ui/icons/ViewColumn';
 import Button from '@material-ui/core/Button';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogActions from '@material-ui/core/DialogActions';
-import Dialog from '@material-ui/core/Dialog';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormGroup from '@material-ui/core/FormGroup';
-import Checkbox from '@material-ui/core/Checkbox';
 
-const LS = 'raColumnsConfig';
+import SelectionDialog from './SelectionDialog';
+import LocalStorage from './LocalStorage';
+
+const arrayToSelection = values =>
+  values.reduce((selection, columnName) => {
+    selection[columnName] = true;
+    return selection;
+  }, {});
 
 // CustomizableDatagrid allows to show/hide columns dynamically
 // the preferences are stored in local storage
@@ -28,140 +25,76 @@ class CustomizableDatagrid extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false,
-      selection: {},
+      modalOpened: false,
+      selection: this.getInitialSelection(),
     };
-
-    const { defaultColumns, resource, children } = props;
-
-    let localStorageValue = null;
-    let localStorageValueForResource = null;
-
-    // we try to retrieve the local storage value for this resource
-    try {
-      localStorageValue = JSON.parse(
-        isEmpty(window.localStorage.getItem(LS)) ? '{}' : window.localStorage.getItem(LS),
-      );
-      localStorageValueForResource = localStorageValue[resource] || {};
-    } catch (e) {} // ignore - window.localStorage is unreliable
-
-    // if this is the first time the user come to the application / view
-    if (!isEmpty(defaultColumns) && isEmpty(localStorageValueForResource)) {
-      defaultColumns.forEach(defaultValue => {
-        this.state.selection[defaultValue] = true;
-      });
-    }
-    // we try to apply the local storage state to our internal state
-    else if (!isEmpty(localStorageValueForResource)) {
-      Object.keys(localStorageValueForResource).forEach(key => {
-        this.state.selection[key] = localStorageValueForResource[key];
-      });
-    }
-    // otherwise we fallback on the default behaviour
-    //  -> display all columns
-    else {
-      React.Children.forEach(children, field => {
-        this.state.selection[field.props.source] = true;
-      });
-    }
-
-    this.updateLocalStorage();
   }
 
-  // updates the local storage with the internal state value
-  updateLocalStorage = () => {
-    const { resource } = this.props;
-    const { selection } = this.state;
+  getColumnNames() {
+    const { children } = this.props;
+    return filter(React.Children.map(children, field => get(field, ['props', 'source'])));
+  }
 
-    // maybe there isnt an old value
-    let oldValue = {};
-    try {
-      oldValue = JSON.parse(window.localStorage.getItem(LS));
-    } catch (e) {}
+  getInitialSelection() {
+    const { defaultColumns, resource, children, storage } = this.props;
 
-    const value = JSON.stringify({
-      ...oldValue,
-      [resource]: selection,
-    });
+    const previousSelection = storage.get(resource);
 
-    try {
-      window.localStorage.setItem(LS, value);
-    } catch (e) {}
+    // if we have a previously stored value, let's return it
+    if (!isEmpty(previousSelection)) {
+      return previousSelection;
+    }
+
+    // if defaultColumns are set let's return them
+    if (!isEmpty(defaultColumns)) {
+      return arrayToSelection(defaultColumns);
+    }
+
+    // otherwise we fallback on the default behaviour : display all columns
+    return arrayToSelection(this.getColumnNames());
+  }
+
+  // updates the storage with the internal state value
+  updateStorage = () => {
+    this.props.storage.set(this.props.resource, this.state.selection);
   };
 
-  toggleColumn = event => {
-    this.setState(
-      {
-        selection: {
-          ...this.state.selection,
-          [event.target.value]: !this.state.selection[event.target.value],
-        },
-      },
-      this.updateLocalStorage,
-    );
+  toggleColumn = columnName => {
+    const previousSelection = this.state.selection;
+    const selection = {
+      ...previousSelection,
+      [columnName]: !previousSelection[columnName],
+    };
+    this.setState({ selection }, this.updateStorage);
   };
 
-  handleOpen = () => this.setState({ open: true });
-  handleClose = () => this.setState({ open: false });
+  handleOpen = () => this.setState({ modalOpened: true });
+  handleClose = () => this.setState({ modalOpened: false });
 
   render() {
     const { children, defaultColumns, ...rest } = this.props;
-
-    const columns = React.Children.map(children, field => field.props.source);
+    const { selection, modalOpened } = this.state;
 
     return (
       <div>
         <div style={{ float: 'right', marginRight: '1rem' }}>
-          <Button
-            variant="outlined"
-            mini
-            color="secondary"
-            aria-label="add"
-            onClick={this.handleOpen}
-          >
-            <Icon />
+          <Button variant="outlined" mini aria-label="add" onClick={this.handleOpen}>
+            <ColumnIcon />
           </Button>
-          {this.state.open && (
-            <Dialog
-              maxWidth="xs"
-              aria-labelledby="confirmation-dialog-title"
-              open={this.state.open}
-              onEscapeKeyDown={this.handleClose}
-              onBackdropClick={this.handleClose}
-            >
-              <DialogTitle id="confirmation-dialog-title">Configuration</DialogTitle>
-              <DialogContent>
-                <FormGroup>
-                  {columns.map(column => (
-                    <FormControlLabel
-                      key={column}
-                      control={
-                        <Checkbox
-                          checked={!!this.state.selection[column]}
-                          onChange={this.toggleColumn}
-                          value={column}
-                        />
-                      }
-                      label={column}
-                    />
-                  ))}
-                </FormGroup>
-              </DialogContent>
-              <DialogActions>
-                <Button onClick={this.handleClose} color="primary">
-                  <IconClose />
-                </Button>
-              </DialogActions>
-            </Dialog>
-          )}
         </div>
+        {modalOpened && (
+          <SelectionDialog
+            selection={selection}
+            columns={this.getColumnNames()}
+            onColumnClicked={this.toggleColumn}
+            onClose={this.handleClose}
+          />
+        )}
         <Datagrid {...rest}>
           {React.Children.map(
             children,
             child =>
-              child && !!this.state.selection[child.props.source]
-                ? React.cloneElement(child, {})
-                : null,
+              child && !!selection[child.props.source] ? React.cloneElement(child, {}) : null,
           )}
         </Datagrid>
       </div>
@@ -171,10 +104,15 @@ class CustomizableDatagrid extends Component {
 
 CustomizableDatagrid.propTypes = {
   defaultColumns: T.arrayOf(T.string),
+  storage: T.shape({
+    get: T.func.isRequired,
+    set: T.func.isRequired,
+  }),
 };
 
 CustomizableDatagrid.defaultProps = {
   defaultColumns: [],
+  storage: LocalStorage,
 };
 
 export default CustomizableDatagrid;
