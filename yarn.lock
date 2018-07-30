@@ -3,15 +3,15 @@
 
 
 "@babel/runtime@^7.0.0-beta.42":
-  version "7.0.0-beta.54"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0-beta.54.tgz#39ebb42723fe7ca4b3e1b00e967e80138d47cadf"
+  version "7.0.0-beta.55"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0-beta.55.tgz#0bc33aa5a6ac0b012f37e25b9e6aaa2e489a916b"
   dependencies:
     core-js "^2.5.7"
     regenerator-runtime "^0.12.0"
 
 "@material-ui/core@^1.0.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-1.4.0.tgz#e535fef84576b096c46e1fb7d6c4c61895155fd3"
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-1.4.2.tgz#8a1282e985d4922a4d2b4f7e287d8a716a2fc108"
   dependencies:
     "@babel/runtime" "^7.0.0-beta.42"
     "@types/jss" "^9.5.3"
@@ -33,13 +33,12 @@
     jss-vendor-prefixer "^7.0.0"
     keycode "^2.1.9"
     normalize-scroll-left "^0.1.2"
-    popper.js "^1.0.0"
+    popper.js "^1.14.1"
     prop-types "^15.6.0"
     react-event-listener "^0.6.0"
     react-jss "^8.1.0"
     react-transition-group "^2.2.1"
     recompose "^0.27.0"
-    scroll "^2.0.3"
     warning "^4.0.1"
 
 "@material-ui/icons@^1.0.0":
@@ -49,8 +48,8 @@
     recompose "^0.26.0 || ^0.27.0"
 
 "@types/jss@^9.5.3":
-  version "9.5.3"
-  resolved "https://registry.yarnpkg.com/@types/jss/-/jss-9.5.3.tgz#0c106de3fe0b324cd4173fac7dab26c12cda624e"
+  version "9.5.4"
+  resolved "https://registry.yarnpkg.com/@types/jss/-/jss-9.5.4.tgz#89a4ee32a14a8d2937187b1a7f443750e964a74d"
   dependencies:
     csstype "^2.0.0"
     indefinite-observable "^1.0.1"
@@ -62,8 +61,8 @@
     "@types/react" "*"
 
 "@types/react@*":
-  version "16.4.6"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.4.6.tgz#5024957c6bcef4f02823accf5974faba2e54fada"
+  version "16.4.7"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.4.7.tgz#f33f6d759a7e1833befa15224d68942d178a5a3f"
   dependencies:
     csstype "^2.2.0"
 
@@ -994,8 +993,8 @@ css-vendor@^0.3.8:
     is-in-browser "^1.0.2"
 
 csstype@^2.0.0, csstype@^2.2.0, csstype@^2.5.2:
-  version "2.5.5"
-  resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.5.5.tgz#4125484a3d42189a863943f23b9e4b80fedfa106"
+  version "2.5.6"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.5.6.tgz#2ae1db2319642d8b80a668d2d025c6196071e788"
 
 debounce@^1.1.0:
   version "1.1.0"
@@ -1055,10 +1054,6 @@ diacritic@0.0.2:
 dom-helpers@^3.2.1, dom-helpers@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/dom-helpers/-/dom-helpers-3.3.1.tgz#fc1a4e15ffdf60ddde03a480a9c0fece821dd4a6"
-
-dom-walk@^0.1.0:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/dom-walk/-/dom-walk-0.1.1.tgz#672226dc74c8f799ad35307df936aba11acd6018"
 
 emojis-list@^2.0.0:
   version "2.1.0"
@@ -1253,13 +1248,6 @@ glob@^7.0.5, glob@^7.1.2:
     minimatch "^3.0.4"
     once "^1.3.0"
     path-is-absolute "^1.0.0"
-
-global@~4.3.0:
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/global/-/global-4.3.2.tgz#e76989268a6c74c38908b1305b10fc0e394e9d0f"
-  dependencies:
-    min-document "^2.19.0"
-    process "~0.5.1"
 
 globals@^9.18.0:
   version "9.18.0"
@@ -1698,12 +1686,6 @@ micromatch@^2.1.5:
     parse-glob "^3.0.4"
     regex-cache "^0.4.2"
 
-min-document@^2.19.0:
-  version "2.19.0"
-  resolved "https://registry.yarnpkg.com/min-document/-/min-document-2.19.0.tgz#7bd282e3f5842ed295bb748cdd9f1ffa2c824685"
-  dependencies:
-    dom-walk "^0.1.0"
-
 minimatch@^3.0.2, minimatch@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
@@ -1955,7 +1937,7 @@ pkg-dir@^3.0.0:
   dependencies:
     find-up "^3.0.0"
 
-popper.js@^1.0.0:
+popper.js@^1.14.1:
   version "1.14.3"
   resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.3.tgz#1438f98d046acf7b4d78cd502bf418ac64d4f095"
 
@@ -1974,10 +1956,6 @@ private@^0.1.6, private@^0.1.8:
 process-nextick-args@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.0.tgz#a37d732f4271b4ab1ad070d35508e8290788ffaa"
-
-process@~0.5.1:
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/process/-/process-0.5.2.tgz#1638d8a8e34c2f440a91db95ab9aeb677fc185cf"
 
 promise@^7.1.1:
   version "7.3.1"
@@ -2000,9 +1978,9 @@ query-string@~5.1.1:
     object-assign "^4.1.0"
     strict-uri-encode "^1.0.0"
 
-ra-core@^2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/ra-core/-/ra-core-2.1.2.tgz#88e81ce17a53af7395283b47ccd73f212e1ae829"
+ra-core@^2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/ra-core/-/ra-core-2.1.3.tgz#602d09e80fb4340fadd41de148d189114b17d19f"
   dependencies:
     babel-runtime "~6.26.0"
     classnames "~2.2.5"
@@ -2011,7 +1989,7 @@ ra-core@^2.1.2:
     node-polyglot "2.2.2"
     prop-types "~15.6.1"
     query-string "~5.1.1"
-    ra-language-english "^2.0.2"
+    ra-language-english "^2.1.3"
     react-redux "~5.0.7"
     react-router "~4.2.0"
     react-router-dom "~4.2.2"
@@ -2023,13 +2001,13 @@ ra-core@^2.1.2:
     reselect "~3.0.0"
     warning "~3.0.0"
 
-ra-language-english@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/ra-language-english/-/ra-language-english-2.0.2.tgz#121bd8c358af7f74dc7a8bff4f4860aaec150a3b"
+ra-language-english@^2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/ra-language-english/-/ra-language-english-2.1.3.tgz#c34e280f4052b35210e812d41c7c12f223ed7377"
 
-ra-ui-materialui@^2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/ra-ui-materialui/-/ra-ui-materialui-2.1.2.tgz#d7ed80e8e34c37cb92e7237b0d6f5ab2e8e01baa"
+ra-ui-materialui@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/ra-ui-materialui/-/ra-ui-materialui-2.1.4.tgz#ad6b045379566164f1573c09f64c42d1d3e7ab92"
   dependencies:
     "@material-ui/core" "^1.0.0"
     "@material-ui/icons" "^1.0.0"
@@ -2038,7 +2016,7 @@ ra-ui-materialui@^2.1.2:
     inflection "~1.12.0"
     lodash "~4.17.5"
     prop-types "~15.6.1"
-    ra-core "^2.1.2"
+    ra-core "^2.1.3"
     react-autosuggest "^9.3.2"
     react-dropzone "~4.0.1"
     react-redux "~5.0.7"
@@ -2047,12 +2025,6 @@ ra-ui-materialui@^2.1.2:
     recompose "~0.26.0"
     redux "~3.7.2"
     redux-form "~7.3.0"
-
-rafl@~1.2.1:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/rafl/-/rafl-1.2.2.tgz#fe930f758211020d47e38815f5196a8be4150740"
-  dependencies:
-    global "~4.3.0"
 
 randomatic@^3.0.0:
   version "3.0.0"
@@ -2072,12 +2044,12 @@ rc@^1.2.7:
     strip-json-comments "~2.0.1"
 
 react-admin@^2.1.1:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/react-admin/-/react-admin-2.1.2.tgz#9cde6890baf146d4d3b1b1f8a8c787b2286d2df3"
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/react-admin/-/react-admin-2.1.4.tgz#9832da48a88277f85e4ae63ba90ea27fb3b3f089"
   dependencies:
-    ra-core "^2.1.2"
-    ra-language-english "^2.0.2"
-    ra-ui-materialui "^2.1.2"
+    ra-core "^2.1.3"
+    ra-language-english "^2.1.3"
+    ra-ui-materialui "^2.1.4"
 
 react-autosuggest@^9.3.2:
   version "9.3.4"
@@ -2369,12 +2341,6 @@ safe-buffer@^5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
 sax@^1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
-
-scroll@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/scroll/-/scroll-2.0.3.tgz#0951b785544205fd17753bc3d294738ba16fc2ab"
-  dependencies:
-    rafl "~1.2.1"
 
 section-iterator@^2.0.0:
   version "2.0.0"
