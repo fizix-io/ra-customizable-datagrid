@@ -46,6 +46,7 @@ class CustomizableDatagrid extends Component {
             label: get(field, ['props', 'label']),
           },
       ),
+      item => item && item.source,
     );
   }
 
@@ -85,6 +86,18 @@ class CustomizableDatagrid extends Component {
   handleOpen = () => this.setState({ modalOpened: true });
   handleClose = () => this.setState({ modalOpened: false });
 
+  renderChild = child => {
+    const source = get(child, ['props', 'source']);
+    const { selection } = this.state;
+
+    // Show children without source, or children explicitly visible
+    if (!source || selection[source]) {
+      return React.cloneElement(child, {});
+    }
+
+    return null;
+  };
+
   render() {
     const { children, defaultColumns, ...rest } = this.props;
     const { selection, modalOpened } = this.state;
@@ -104,13 +117,7 @@ class CustomizableDatagrid extends Component {
             onClose={this.handleClose}
           />
         )}
-        <Datagrid {...rest}>
-          {React.Children.map(
-            children,
-            child =>
-              child && !!selection[child.props.source] ? React.cloneElement(child, {}) : null,
-          )}
-        </Datagrid>
+        <Datagrid {...rest}>{React.Children.map(children, this.renderChild)}</Datagrid>
       </div>
     );
   }
