@@ -35,6 +35,20 @@ class CustomizableDatagrid extends Component {
     return filter(React.Children.map(children, field => get(field, ['props', 'source'])));
   }
 
+  getColumnLabels() {
+    const { children } = this.props;
+    return filter(
+      React.Children.map(
+        children,
+        field =>
+          field && {
+            source: get(field, ['props', 'source']),
+            label: get(field, ['props', 'label']),
+          },
+      ),
+    );
+  }
+
   getInitialSelection() {
     const { defaultColumns, resource, children, storage } = this.props;
 
@@ -85,7 +99,7 @@ class CustomizableDatagrid extends Component {
         {modalOpened && (
           <SelectionDialog
             selection={selection}
-            columns={this.getColumnNames()}
+            columns={this.getColumnLabels()}
             onColumnClicked={this.toggleColumn}
             onClose={this.handleClose}
           />

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import T from 'prop-types';
 
+import { FieldTitle } from 'react-admin';
+
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -17,24 +19,24 @@ class SelectionDialog extends Component {
   };
 
   render() {
-    const { columns, selection, onClose } = this.props;
+    const { columns, selection, onClose, resource } = this.props;
 
     return (
       <Dialog maxWidth="xs" aria-labelledby="ra-columns-dialog-title" onClose={onClose} open>
         <DialogTitle id="ra-columns-dialog-title">Configuration</DialogTitle>
         <DialogContent>
           <FormGroup>
-            {columns.map(columnName => (
+            {columns.map(({ source, label }) => (
               <FormControlLabel
-                key={columnName}
+                key={source}
                 control={
                   <Checkbox
-                    checked={!!selection[columnName]}
+                    checked={!!selection[source]}
                     onChange={this.onColumnClicked}
-                    value={columnName}
+                    value={source}
                   />
                 }
-                label={columnName}
+                label={<FieldTitle label={label} source={source} resource={resource} />}
               />
             ))}
           </FormGroup>
@@ -50,7 +52,12 @@ class SelectionDialog extends Component {
 }
 
 SelectionDialog.propTypes = {
-  columns: T.arrayOf(T.string).isRequired,
+  columns: T.arrayOf(
+    T.shape({
+      label: T.string,
+      source: T.string.isRequired,
+    }),
+  ).isRequired,
   selection: T.object,
 };
 
