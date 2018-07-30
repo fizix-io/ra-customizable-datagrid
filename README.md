@@ -1,7 +1,13 @@
 
 <div align="center">
   <div style="margin-bottom: 20px">
-    [![npm](https://img.shields.io/npm/v/ra-customizable-datagrid.svg)](ra-customizable-datagrid)
+
+
+[![GitHub issues](https://img.shields.io/github/issues/fizix-io/ra-customizable-datagrid.svg)](https://github.com/fizix-io/ra-customizable-datagrid/issues)
+[![GitHub stars](https://img.shields.io/github/stars/fizix-io/ra-customizable-datagrid.svg)](https://github.com/fizix-io/ra-customizable-datagrid/stargazers)
+[![GitHub license](https://img.shields.io/github/license/fizix-io/ra-customizable-datagrid.svg)](https://github.com/fizix-io/ra-customizable-datagrid/blob/master/LICENSE)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/fizix-io/ra-customizable-datagrid.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Ffizix-io%2Fra-customizable-datagrid)
+
   </div>
 
   <a href="https://fizix.io" rel="noopener" target="_blank"><img width="70" src="https://s3.eu-central-1.amazonaws.com/fizix-assets/images/logos/fizix-logo-black.png" alt="Fizix logo"></a>
