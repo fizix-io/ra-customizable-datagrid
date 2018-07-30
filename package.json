@@ -4,11 +4,11 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "build": "/node_modules/.bin/babel ./src/ -d lib",
+    "build": "babel ./src/ -d lib",
     "demo": "npm run start --prefix ./demo",
     "demo-install": "yarn install --cwd ./demo && yarn install && npm run install:peers",
     "install:peers": "yarn add -P $(jq -r '.peerDependencies | to_entries | map(\"\\(.key)@\\(.value | tostring)\") | join(\" \")' package.json)",
-    "prettier-js": "./node_modules/.bin/prettier --write '{src,demo}/**/*.js'"
+    "prettier-js": "prettier --write '{src,demo}/**/*.js'"
   },
   "repository": {
     "type": "git",
