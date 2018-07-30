@@ -132,7 +132,7 @@ module.exports = {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -144,84 +144,84 @@ var _raLanguageFrench2 = _interopRequireDefault(_raLanguageFrench);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _extends({
-    simple: {
-        action: {
-            close: 'Fermer',
-            resetViews: 'Réinitialiser des vues'
-        },
-        'create-post': 'Nouveau post'
-    }
+  simple: {
+    action: {
+      close: 'Fermer',
+      resetViews: 'Réinitialiser des vues'
+    },
+    'create-post': 'Nouveau post'
+  }
 }, _raLanguageFrench2.default, {
-    resources: {
-        posts: {
-            name: 'Article |||| Articles',
-            fields: {
-                average_note: 'Note moyenne',
-                body: 'Contenu',
-                comments: 'Commentaires',
-                commentable: 'Commentable',
-                created_at: 'Créé le',
-                notifications: 'Destinataires de notifications',
-                nb_view: 'Nb de vues',
-                password: 'Mot de passe (si protégé)',
-                pictures: 'Photos associées',
-                published_at: 'Publié le',
-                teaser: 'Description',
-                tags: 'Catégories',
-                title: 'Titre',
-                views: 'Vues'
-            }
-        },
-        comments: {
-            name: 'Commentaire |||| Commentaires',
-            fields: {
-                body: 'Contenu',
-                created_at: 'Créé le',
-                post_id: 'Article',
-                author: {
-                    name: 'Auteur'
-                }
-            }
-        },
-        users: {
-            name: 'User |||| Users',
-            fields: {
-                name: 'Name',
-                role: 'Role'
-            }
-        }
+  resources: {
+    posts: {
+      name: 'Article |||| Articles',
+      fields: {
+        average_note: 'Note moyenne',
+        body: 'Contenu',
+        comments: 'Commentaires',
+        commentable: 'Commentable',
+        created_at: 'Créé le',
+        notifications: 'Destinataires de notifications',
+        nb_view: 'Nb de vues',
+        password: 'Mot de passe (si protégé)',
+        pictures: 'Photos associées',
+        published_at: 'Publié le',
+        teaser: 'Description',
+        tags: 'Catégories',
+        title: 'Titre',
+        views: 'Vues'
+      }
     },
-    post: {
-        list: {
-            search: 'Recherche'
-        },
-        form: {
-            summary: 'Résumé',
-            body: 'Contenu',
-            miscellaneous: 'Extra',
-            comments: 'Commentaires'
-        },
-        edit: {
-            title: 'Article "%{title}"'
+    comments: {
+      name: 'Commentaire |||| Commentaires',
+      fields: {
+        body: 'Contenu',
+        created_at: 'Créé le',
+        post_id: 'Article',
+        author: {
+          name: 'Auteur'
         }
+      }
     },
-    comment: {
-        list: {
-            about: 'Au sujet de'
-        }
-    },
-    user: {
-        list: {
-            search: 'Recherche'
-        },
-        form: {
-            summary: 'Résumé',
-            security: 'Sécurité'
-        },
-        edit: {
-            title: 'Utilisateur "%{title}"'
-        }
+    users: {
+      name: 'User |||| Users',
+      fields: {
+        name: 'Name',
+        role: 'Role'
+      }
     }
+  },
+  post: {
+    list: {
+      search: 'Recherche'
+    },
+    form: {
+      summary: 'Résumé',
+      body: 'Contenu',
+      miscellaneous: 'Extra',
+      comments: 'Commentaires'
+    },
+    edit: {
+      title: 'Article "%{title}"'
+    }
+  },
+  comment: {
+    list: {
+      about: 'Au sujet de'
+    }
+  },
+  user: {
+    list: {
+      search: 'Recherche'
+    },
+    form: {
+      summary: 'Résumé',
+      security: 'Sécurité'
+    },
+    edit: {
+      title: 'Utilisateur "%{title}"'
+    }
+  }
 });
 
 /***/ })
