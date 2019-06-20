@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import T from 'prop-types';
 
-import { Datagrid } from 'react-admin';
+import { Datagrid, Button } from 'react-admin';
 
 import isEmpty from 'lodash/isEmpty';
 import filter from 'lodash/filter';
 import get from 'lodash/get';
 
 import ColumnIcon from '@material-ui/icons/ViewColumn';
-import Button from '@material-ui/core/Button';
 
 import SelectionDialog from './SelectionDialog';
 import LocalStorage from './LocalStorage';
@@ -99,13 +98,13 @@ class CustomizableDatagrid extends Component {
   };
 
   render() {
-    const { children, defaultColumns, ...rest } = this.props;
+    const { children, defaultColumns, buttonLabel, ...rest } = this.props;
     const { selection, modalOpened } = this.state;
 
     return (
       <div>
         <div style={{ float: 'right', marginRight: '1rem' }}>
-          <Button variant="outlined" mini aria-label="add" onClick={this.handleOpen}>
+          <Button aria-label="add" label={buttonLabel} onClick={this.handleOpen}>
             <ColumnIcon />
           </Button>
         </div>
@@ -129,11 +128,13 @@ CustomizableDatagrid.propTypes = {
     get: T.func.isRequired,
     set: T.func.isRequired,
   }),
+  buttonLabel: T.string,
 };
 
 CustomizableDatagrid.defaultProps = {
   defaultColumns: [],
   storage: LocalStorage,
+  buttonLabel: 'columns',
 };
 
 export default CustomizableDatagrid;
