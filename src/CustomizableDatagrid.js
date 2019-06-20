@@ -8,9 +8,18 @@ import filter from 'lodash/filter';
 import get from 'lodash/get';
 
 import ColumnIcon from '@material-ui/icons/ViewColumn';
+import { Toolbar } from '@material-ui/core';
+
+import { withStyles, createStyles } from '@material-ui/core/styles';
 
 import SelectionDialog from './SelectionDialog';
 import LocalStorage from './LocalStorage';
+
+const styles = createStyles({
+  customizableGridToolbar: {
+    justifyContent: 'flex-end',
+  },
+});
 
 const arrayToSelection = values =>
   values.reduce((selection, columnName) => {
@@ -103,11 +112,11 @@ class CustomizableDatagrid extends Component {
 
     return (
       <div>
-        <div style={{ float: 'right', marginRight: '1rem' }}>
+        <Toolbar className={this.props.classes.customizableGridToolbar}>
           <Button aria-label="add" label={buttonLabel} onClick={this.handleOpen}>
             <ColumnIcon />
           </Button>
-        </div>
+        </Toolbar>
         {modalOpened && (
           <SelectionDialog
             selection={selection}
@@ -129,12 +138,14 @@ CustomizableDatagrid.propTypes = {
     set: T.func.isRequired,
   }),
   buttonLabel: T.string,
+  classes: T.object,
 };
 
 CustomizableDatagrid.defaultProps = {
   defaultColumns: [],
   storage: LocalStorage,
   buttonLabel: 'columns',
+  classes: {},
 };
 
-export default CustomizableDatagrid;
+export default withStyles(styles)(CustomizableDatagrid);
