@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
 import T from 'prop-types';
 
-import { Datagrid } from 'react-admin';
+import { Datagrid, Button } from 'react-admin';
 
 import isEmpty from 'lodash/isEmpty';
 import filter from 'lodash/filter';
 import get from 'lodash/get';
 
 import ColumnIcon from '@material-ui/icons/ViewColumn';
-import Button from '@material-ui/core/Button';
+import { Toolbar } from '@material-ui/core';
+
+import { withStyles, createStyles } from '@material-ui/core/styles';
 
 import SelectionDialog from './SelectionDialog';
 import LocalStorage from './LocalStorage';
+
+const styles = createStyles({
+  customizableGridToolbar: {
+    justifyContent: 'flex-end',
+  },
+});
 
 const arrayToSelection = values =>
   values.reduce((selection, columnName) => {
@@ -99,16 +107,16 @@ class CustomizableDatagrid extends Component {
   };
 
   render() {
-    const { children, defaultColumns, ...rest } = this.props;
+    const { children, defaultColumns, buttonLabel, ...rest } = this.props;
     const { selection, modalOpened } = this.state;
 
     return (
       <div>
-        <div style={{ float: 'right', marginRight: '1rem' }}>
-          <Button variant="outlined" mini aria-label="add" onClick={this.handleOpen}>
+        <Toolbar className={this.props.classes.customizableGridToolbar}>
+          <Button aria-label="add" label={buttonLabel} onClick={this.handleOpen}>
             <ColumnIcon />
           </Button>
-        </div>
+        </Toolbar>
         {modalOpened && (
           <SelectionDialog
             selection={selection}
@@ -129,11 +137,15 @@ CustomizableDatagrid.propTypes = {
     get: T.func.isRequired,
     set: T.func.isRequired,
   }),
+  buttonLabel: T.string,
+  classes: T.object,
 };
 
 CustomizableDatagrid.defaultProps = {
   defaultColumns: [],
   storage: LocalStorage,
+  buttonLabel: 'columns',
+  classes: {},
 };
 
-export default CustomizableDatagrid;
+export default withStyles(styles)(CustomizableDatagrid);

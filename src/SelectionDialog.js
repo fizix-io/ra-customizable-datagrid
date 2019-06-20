@@ -34,6 +34,7 @@ class SelectionDialog extends Component {
                     checked={!!selection[source]}
                     onChange={this.onColumnClicked}
                     value={source}
+                    color="primary"
                   />
                 }
                 label={<FieldTitle label={label} source={source} resource={resource} />}
