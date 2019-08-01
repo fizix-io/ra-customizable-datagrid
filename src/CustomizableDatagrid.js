@@ -115,6 +115,7 @@ class CustomizableDatagrid extends Component {
             columns={this.getColumnLabels()}
             onColumnClicked={this.toggleColumn}
             onClose={this.handleClose}
+            resource={rest.resource}
           />
         )}
         <Datagrid {...rest}>{React.Children.map(children, this.renderChild)}</Datagrid>
