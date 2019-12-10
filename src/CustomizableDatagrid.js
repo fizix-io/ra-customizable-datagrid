@@ -111,6 +111,7 @@ class CustomizableDatagrid extends Component {
         </div>
         {modalOpened && (
           <SelectionDialog
+            resource={resource}
             selection={selection}
             columns={this.getColumnLabels()}
             onColumnClicked={this.toggleColumn}
